@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\TaskList;
 use App\User;
+use App\TaskList;
 use App\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TaskPolicy
+class TaskListPolicy
 {
     use HandlesAuthorization;
 
@@ -20,9 +20,9 @@ class TaskPolicy
     {
         //
     }
-    public function destroy(User $user, Task $task)
+    public function destroy(User $user, TaskList $taskList)
     {
-        return $user->id === $task->user_id;
+        return $user->id === $taskList->user_id;
     }
 
 }
